@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Chinese_chess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Map.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\chess_bass.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\scene.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\object_list.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\posi_list.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\utils.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Elephant.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\data_structure.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Conon.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Chinese_chess.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Chess.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\change.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Advisor.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Knight.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\King.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\pixel_posi.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Map.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Soldier.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Rook.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\posi.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vague.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
