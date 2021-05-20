@@ -1,2 +1,0 @@
-C:\Users\浆布\Desktop\c++ learning\project\Demo\Debug\Demo.exe
-C:\Users\浆布\Desktop\c++ learning\project\Demo\Debug\Demo.pdb

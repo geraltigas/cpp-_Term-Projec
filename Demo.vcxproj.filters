@@ -14,75 +14,54 @@
     <ClCompile Include="source\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="source\Chinese_chess.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="source\Map.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="source\test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="source\King.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Chess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Vague.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Advisor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Conon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Chinese_chess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Elephant.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Knight.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Rook.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Soldier.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\chess_bass.h">
+    <ClInclude Include="source\ALL.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="source\scene.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\object_list.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\posi_list.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\utils.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Elephant.h">
+    <ClInclude Include="source\macro.h">
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="source\data_structure.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="source\Conon.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Chinese_chess.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Chess.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\change.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Advisor.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Knight.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\King.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\pixel_posi.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Map.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Soldier.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Rook.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\posi.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Vague.h">
+    <ClInclude Include="source\static_init.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

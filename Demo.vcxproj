@@ -19,32 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Advisor.cpp" />
+    <ClCompile Include="source\Chess.cpp" />
     <ClCompile Include="source\Chinese_chess.cpp" />
+    <ClCompile Include="source\Conon.cpp" />
+    <ClCompile Include="source\Elephant.cpp" />
+    <ClCompile Include="source\King.cpp" />
+    <ClCompile Include="source\Knight.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Map.cpp" />
+    <ClCompile Include="source\Rook.cpp" />
+    <ClCompile Include="source\Soldier.cpp" />
     <ClCompile Include="source\test.cpp" />
+    <ClCompile Include="source\Vague.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\Advisor.h" />
-    <ClInclude Include="source\change.h" />
-    <ClInclude Include="source\Chess.h" />
-    <ClInclude Include="source\chess_bass.h" />
-    <ClInclude Include="source\Chinese_chess.h" />
-    <ClInclude Include="source\Conon.h" />
+    <ClInclude Include="source\ALL.h" />
     <ClInclude Include="source\data_structure.h" />
-    <ClInclude Include="source\Elephant.h" />
-    <ClInclude Include="source\King.h" />
-    <ClInclude Include="source\Knight.h" />
-    <ClInclude Include="source\Map.h" />
-    <ClInclude Include="source\object_list.h" />
-    <ClInclude Include="source\pixel_posi.h" />
-    <ClInclude Include="source\posi.h" />
-    <ClInclude Include="source\posi_list.h" />
-    <ClInclude Include="source\Rook.h" />
-    <ClInclude Include="source\scene.h" />
-    <ClInclude Include="source\Soldier.h" />
-    <ClInclude Include="source\utils.h" />
-    <ClInclude Include="source\Vague.h" />
+    <ClInclude Include="source\macro.h" />
+    <ClInclude Include="source\static_init.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

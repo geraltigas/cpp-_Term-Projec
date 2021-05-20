@@ -1,0 +1,22 @@
+#include "ALL.h"
+
+Advisor::Advisor(
+	Camp side,
+	unsigned int xx,
+	unsigned int yy,
+	Type types,
+	wchar_t* pics
+) :
+	Chess(side, xx, yy, types, pics)
+{
+	call_back = [this]()
+	{
+
+	};
+};
+change* Advisor::next()
+{
+	return (new change());
+};
+
+Linked_list<utils::vector> Advisor::move_v = Linked_list<utils::vector>();

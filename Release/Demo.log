@@ -1,4 +1,0 @@
-﻿  main.cpp
-  test.cpp
-test.obj : error LNK2005: _main already defined in main.obj
-C:\Users\浆布\Desktop\c++ learning\project\Demo\Release\Demo.exe : fatal error LNK1169: one or more multiply defined symbols found
