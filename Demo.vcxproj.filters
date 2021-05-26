@@ -58,11 +58,5 @@
     <ClInclude Include="source\macro.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="source\data_structure.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="source\static_init.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

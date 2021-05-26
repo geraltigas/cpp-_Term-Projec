@@ -157,14 +157,23 @@ public:
 	};
 	T& pop()
 	{
-		T temp = end->data;
-		Node<T>* temp_end = end;
-		end = end->pre;
-		end->succ = nullptr;
-		delete temp_end;
-		scale--;
-		detect();
-		return temp;
+		if (scale > 0)
+		{
+			(*this)[scale - 1];
+			T temp = now_at->data;
+			Node<T>* temps = now_at;
+			now_at = now_at->pre;
+			now_rank--;
+			scale--;
+			delete temps;
+			return temp;
+		}
+		else
+		{
+			return *(T*)(nullptr);
+		}
+
+
 	};
 	void pop_by_rank(int rank)
 	{
@@ -178,6 +187,7 @@ public:
 			begin = begin->succ;
 			scale--;
 			begin->pre = nullptr;
+			delete now_at;
 			now_at = begin;
 		}
 		else

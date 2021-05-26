@@ -17,3 +17,6 @@
 #define JIANG_CAMP_LOGO const_cast<wchar_t*>(L".\\image\\b.png")
 #define SHUAI_CAMP_LOGO const_cast<wchar_t*>(L".\\image\\r.png")
 #define VAGUE const_cast<wchar_t*>(L".\\image\\vague.png")
+#define BACKGROUNDS const_cast<wchar_t*>(L".\\image\\board2.png")
+#define BUTTONAG const_cast<wchar_t*>(L".\\image\\again.png")
+#define BUTTONBA const_cast<wchar_t*>(L".\\image\\back.png")

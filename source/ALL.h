@@ -187,16 +187,23 @@ public:
 			now_rank = scale - 1;
 		};
 	};
-	T& pop()
+	T pop()
 	{
-		T temp = end->data;
-		Node<T>* temp_end = end;
-		end = end->pre;
-		end->succ = nullptr;
-		delete temp_end;
-		scale--;
-		detect();
-		return temp;
+		if (scale > 0)
+		{
+			(*this)[scale - 1];
+			T temp = now_at->data;
+			Node<T>* temps = now_at;
+			now_at = now_at->pre;
+			now_rank--;
+			scale--;
+			delete temps;
+			return temp;
+		}
+		else
+		{
+			return *(T*)(nullptr);
+		}
 	};
 	void pop_by_rank(int rank)
 	{
@@ -210,6 +217,7 @@ public:
 			begin = begin->succ;
 			scale--;
 			begin->pre = nullptr;
+			delete now_at;
 			now_at = begin;
 		}
 		else
@@ -297,6 +305,7 @@ public:
 	static Linked_list<utils::vector> move_v;
 	Camp camp;
 	posi position;
+	posi raw_posi;
 	easy2d::Sprite* pic;
 	easy2d::Function<void()> call_back;// 在子类构造函数内传入lambda函数
 	Type type;
@@ -318,8 +327,9 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next() = 0;
+	virtual change* next(Linked_list<posi>& posi_list) = 0;
 	void set_map(Map* maps);
+	void back_to_origin();
 };
 
 class Vague :public Chess
@@ -334,7 +344,8 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next() override;
+	~Vague();
+	virtual change* next(Linked_list<posi>& posi_list) override;
 };
 
 class Soldier :public Chess
@@ -348,7 +359,7 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 
@@ -366,7 +377,7 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 
@@ -430,10 +441,13 @@ public:
 	static Linked_list<change*> change_list; // 每进行变化就加入链表，游戏后统一释放内存 也可用来复盘
 	static Linked_list<Chess*> chess_list;
 	static Linked_list<Vague*> vague_list;
+	static Linked_list<King*> king_list;
+	Chinese_chess* chess_game;
 	space now_map[9][10];
 	easy2d::Scene* host_scene;
 	Camp now_can_move;
-	Map(easy2d::Scene* scene);
+	Camp who_win;
+	Map(easy2d::Scene* scene,Chinese_chess* chess_ga);
 	void init();
 	void meta_refresh(meta_change& meta_changes, change& changes);
 	void refresh(change& changes);
@@ -448,7 +462,11 @@ public:
 	void enable_all(bool control);
 	void enable(unsigned int xx, unsigned int yy, bool control);
 	void enable_half(Camp side,bool control);
-	Camp who_win();
+	void detect_win();
+	void clear_change_list();
+	void back_to_game();
+	void back_map(Map* th);
+	void fupan();
 private:
 	int meiruanyong;
 };
@@ -469,7 +487,7 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 
@@ -486,7 +504,7 @@ public:
 		wchar_t* pics
 	);
 
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 
@@ -504,7 +522,7 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 
@@ -519,25 +537,30 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 
 class Chinese_chess
 {
 public:
-	easy2d::Scene* scene_one;
 	easy2d::Scene* scene_two;
 	easy2d::Scene* scene_three;
+	easy2d::Sprite* background;
+	easy2d::Sprite* button_again;
+	easy2d::Sprite* button_back;
+	easy2d::Text* text;
+	easy2d::Button* button_ag;
+	easy2d::Button* button_ba;
 	Map* map;
 	Chinese_chess();
 	void preload_source() const;
 	void init_window() const;
-	void init_scene_one() const;
 	void init_scene_two() const;
 	void init_scene_three() const;
 	void init() const;
 	void begin();
+	void win_enter();
 };
 
 class Advisor :public Chess
@@ -551,7 +574,7 @@ public:
 		Type types,
 		wchar_t* pics
 	);
-	virtual change* next();
+	virtual change* next(Linked_list<posi>& posi_list);
 };
 
 

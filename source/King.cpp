@@ -11,78 +11,80 @@ King::King(
 {
 	call_back = [&]()
 	{
-		//appear 实例代码
-		
-		static int i = 0;
-		if (i == 0)
+		if (chess_is_selected)
 		{
-			change bian = change(this);
-			bian.add(4, 0, Trans::appear);
-			map->refresh(bian);
-			i = 1;
+			change* changes = new change(this);
+			changes->add(position.x,position.y, Trans::dis_selected);
+			Vague* temp = map->vague_list[0];
+			for (int i = map->vague_list.scale; i > 0; i--)
+			{
+				temp = map->vague_list[map->vague_list.scale-1];
+				changes->add(temp->position.x, temp->position.y, Trans::dis_appear);
+			};
+			map->refresh(*changes);
+			chess_is_selected = false;
+			map->switchs(map->now_can_move);
 		}
 		else
 		{
-			change bian1 = change(this);
-			bian1.add(4, 0, Trans::dis_appear);
-			map->refresh(bian1);
-			i = 0;
+			auto& posi_list = this->position.implement(King::move_v);
+			if (camp == Camp::jiang)
+			{
+				for (int i = 0; i < posi_list.scale; i++)
+				{
+					if (posi_list[i].x < 3 || posi_list[i].x > 5 || posi_list[i].y > 2)
+					{
+						posi_list.pop_by_rank(i);
+						i--;
+					}
+				}
+			}
+			else 
+			{
+				for (int i = 0; i < posi_list.scale; i++)
+				{
+					posi& temp = posi_list[i];
+					if (posi_list[i].x < 3 || posi_list[i].x > 5 || posi_list[i].y < 7)
+					{
+						posi_list.pop_by_rank(i);
+						i--;
+					}
+				}
+			}
+			change* changes = next(posi_list);
+			// 释放posi_list
+			map->refresh(*changes);
+			chess_is_selected = true;
+			map->enable_all(false);
+			map->enable(this->position.x, this->position.y, true);
 		}
-		
-
-		//selected 实例代码
-		/*
-		static int i = 0;
-		if (i == 0)
-		{
-			change bian = change(this);
-			bian.add(4, 9, Trans::selected);
-			map->refresh(bian);
-			i = 1;
-		}
-		else
-		{
-			change bian1 = change(this);
-			bian1.add(4, 9, Trans::dis_selected);
-			map->refresh(bian1);
-			i = 0;
-		}
-		*/
-
-		//move_to
-		/*
-		change bian = change(this);
-		bian.add(4,0,Trans::move_to);
-		map->refresh(bian);
-		*/
-		std::cout << "111" << std::endl;
 	};
 	this->setClickFunc(call_back);
 };
-change* King::next()
+change* King::next(Linked_list<posi>& posi_list)
 {
-	if (!chess_is_selected)
+	change* changes = new change(this);
+	posi temp = posi_list[0];
+	changes->add(position.x, position.y, Trans::selected);
+	for (int i = 0; i < posi_list.scale; i++)
 	{
-		chess_is_selected = !chess_is_selected;
-		auto posis_trival = position.implement(move_v);
-		if (position.x == 0 && position.y == 0)
+		temp = posi_list[i];
+		if (map->now_map[temp.x][temp.y].camp == camp)
 		{
-		}
-		else if (position.x * position.y * position.x * position.y == 1)
-		{
-		}
-		else
-		{
-		}
-	}
-	else
+			std::cout << "pop" << std::endl;
+			posi_list.pop_by_rank(i);
+			i--;
+		};
+	};
+	for (int i = 0; i < posi_list.scale; i++)
 	{
-		chess_is_selected = !chess_is_selected;
-		auto posis_trival = position.implement(move_v);
-		return (new change(this, posis_trival));
-	}
+		temp = posi_list[i];
+		changes->add(temp.x,temp.y,Trans::appear);
+	};
+	return changes;
 };
 
-
 Linked_list<utils::vector> King::move_v = Linked_list<utils::vector>();
+
+
 
